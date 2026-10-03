@@ -15,10 +15,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-
-
 import { Application, Text } from "pixi.js";
-import { getMyProject, initProjects, relayoutProjects } from "./project_style.js";
+import {
+    getMyProject,
+    initProjects,
+    relayoutProjects,
+} from "./project_style.js";
 
 (async () => {
     const app = new Application();
@@ -26,7 +28,7 @@ import { getMyProject, initProjects, relayoutProjects } from "./project_style.js
         background: "#121212",
         resizeTo: window,
         resolution: window.devicePixelRatio || 1,
-        autoDensity: true
+        autoDensity: true,
     });
 
     const container = document.getElementById("pixi-container");
@@ -36,8 +38,8 @@ import { getMyProject, initProjects, relayoutProjects } from "./project_style.js
     container.appendChild(app.canvas);
 
     // 等字体就绪
-    await document.fonts.load('100px bai');
-    await document.fonts.load('22px AlegreSans-Regular-1');
+    await document.fonts.load("100px bai");
+    await document.fonts.load("22px AlegreSans-Regular-1");
 
     // ⭐ 先建网格（在底层），再建标题（在上层）
     await getMyProject();
@@ -46,14 +48,14 @@ import { getMyProject, initProjects, relayoutProjects } from "./project_style.js
     const title = new Text({
         text: "DLW114's blog",
         style: {
-            fontFamily: 'bai',
+            fontFamily: "bai",
             fill: 0xffffff,
-            fontSize: 100
-        }
+            fontSize: 100,
+        },
     });
     title.anchor.set(0.5);
     title.zIndex = 999;
-    app.stage.sortableChildren = true; 
+    app.stage.sortableChildren = true;
     app.stage.addChild(title);
 
     // 布局函数：标题居中 + 通知网格重排
