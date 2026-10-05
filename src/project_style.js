@@ -14,7 +14,7 @@ const SPEED = 1; // 每帧左移像素
 const EXTRA_BUFFER = 400; // 右侧缓冲宽度，防露空
 
 export async function getMyProject() {
-  project_list = await Assets.load("/list/pj.json");
+  project_list = await Assets.load("list/pj.json");
   return project_list;
 }
 
